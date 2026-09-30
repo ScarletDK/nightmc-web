@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NightMC | Dansk Prison Server</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav">
+        <a href="#" class="brand" aria-label="NightMC hjem">
+          <img src="nightmc-text.png" alt="NightMC" class="brand-text" />
+        </a>
+
+        <div class="nav-links">
+          <a href="#features">Funktioner</a>
+          <a href="#about">Om os</a>
+          <a href="#join">Bliv med</a>
+        </div>
+
+        <a class="btn btn-secondary join-button" href="#join">Join nu</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Dansk prison server</div>
+          <h1>Fængslet er ikke det værste.<br />Det er mulighederne.</h1>
+          <p class="subtitle">
+            NightMC er en dansk prison-server, hvor du kan kæmpe for frihed, købe
+            unikke perks og få stærkere stats, evner og fordele, der giver dig en
+            reel edge i hvert eneste spilforløb.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary join-button" href="#join">Spil nu</a>
+            <a class="btn btn-secondary" href="#about">Læs mere</a>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Online</span>
+            </div>
+            <div class="stat">
+              <strong>1.8.X - 26.3</strong>
+              <span>Version</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="minecraft-scene" aria-label="NightMC server logo">
+            <img class="server-logo" src="logo.png" alt="NightMC server logo" />
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <article class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Perks med reel effekt</h3>
+          <p>
+            Få forskellige perks, der giver stat boosts, nye evner og forbedringer,
+            så du kan spille stærkere, smartere og mere effektivt hver eneste dag.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🧱</div>
+          <h3>Prison progression</h3>
+          <p>
+            Byg dig op, arbejd dig op gennem prison-livet, køb dig frem og skab din
+            egen rejse mod prestige, status og større muligheder.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Dansk fællesskab</h3>
+          <p>
+            Vores community er aktiv, hjælpsom og fuld af energi. Kom ind, mød andre
+            spillere og få et stærkere fællesskab med hver eneste opgradering.
+          </p>
+        </article>
+      </section>
+
+      <section class="info-grid" id="about">
+        <div class="panel-box">
+          <h2>Det er ikke kun prison. Det er progression.</h2>
+          <p>
+            NightMC er en dansk prison-server lavet til spillere, der vil have mere end
+            bare et normalt Minecraft-serverliv. Her handler det om perks, stats,
+            evner og den lille fordel, der gør hele forskellen i kampen om frihed.
+          </p>
+
+          <ul class="mini-list">
+            <li>Unikke perks med stat boosts og evner</li>
+            <li>Prison-system og progression med mål</li>
+            <li>Aktivt dansk fællesskab og support</li>
+            <li>Events, challenges og stærk serverflow</li>
+          </ul>
+        </div>
+
+        <div class="panel-box cta-box" id="join">
+          <h2>Er du klar til at tage friheden?</h2>
+          <p>
+            Kom ind i NightMC, vælg dine perks, styrk din karakter og tag kampen om
+            den næste level i det danske prison-univers.
+          </p>
+
+          <div class="server-tags">
+            <span class="tag">Prison</span>
+            <span class="tag">Perks</span>
+            <span class="tag">Stats</span>
+            <span class="tag">Evner</span>
+          </div>
+
+          <a class="btn btn-primary join-button" href="#join">Gå med nu</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="join-modal" id="joinModal" aria-hidden="true">
+      <div class="join-modal-card" role="dialog" aria-modal="true" aria-labelledby="joinTitle">
+        <button class="close-modal" type="button" aria-label="Luk popup">×</button>
+        <h3 id="joinTitle">Join NightMC</h3>
+        <p>Tilslut dig serveren med IP’en nedenfor eller kom ind i Discord fællesskabet.</p>
+
+        <div class="ip-row">
+          <span class="ip-value">nightmc.dk</span>
+          <button class="copy-btn" type="button">Kopier</button>
+        </div>
+
+        <a class="discord-link" href="https://discord.nightmc.dk" target="_blank" rel="noreferrer">Discord</a>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById('joinModal');
+      const closeButton = document.querySelector('.close-modal');
+      const copyButton = document.querySelector('.copy-btn');
+      const ipValue = document.querySelector('.ip-value');
+      const openButtons = document.querySelectorAll('.join-button');
+
+      function openModal() {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      openButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          openModal();
+        });
+      });
+
+      closeButton.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+
+      copyButton.addEventListener('click', async () => {
+        const text = ipValue.textContent.trim();
+
+        try {
+          await navigator.clipboard.writeText(text);
+          copyButton.textContent = 'Kopieret';
+        } catch (error) {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(ipValue);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          copyButton.textContent = 'Markeret';
+        }
+
+        setTimeout(() => {
+          copyButton.textContent = 'Kopier';
+        }, 1500);
+      });
+    </script>
+
+    <footer>
+      © 2026 NightMC • Byg, spil og tilslut dig fællesskabet.
+    </footer>
+  </body>
+</html>
